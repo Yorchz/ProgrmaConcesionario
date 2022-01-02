@@ -24,7 +24,10 @@ public class ConcesionarioApp {
         usuarioRegistrado.vheiculosEnPropiedad();
 
         concesionario.setVehiculosPropietario("RANGE ROVER VELAR");
-        usuarioRegistrado.vheiculosEnPropiedad();
+        System.out.println(usuarioRegistrado.vheiculosEnPropiedad());
+
+        System.out.println("-------------------------------");
+        usuarioRegistrado.revision();
 
         usuarioNoRegistrado.solicitarAsesoramiento("martes", 12, "alvaro", "689145678");
 

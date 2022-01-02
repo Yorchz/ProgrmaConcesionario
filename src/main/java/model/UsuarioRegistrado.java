@@ -21,10 +21,11 @@ public class UsuarioRegistrado extends UsuarioNoRegistrado{
 
     }
 
-    public void vheiculosEnPropiedad(){
+    public ArrayList vheiculosEnPropiedad(){
 
         Concesionario concesionario = new Concesionario("Fernando", "8976");
-        System.out.println(concesionario.getVehiculosPropietario());
+        return concesionario.getVehiculosPropietario();
+
 
     }
 
