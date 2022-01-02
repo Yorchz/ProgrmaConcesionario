@@ -1,5 +1,6 @@
 package model;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public class UsuarioNoRegistrado {
@@ -19,7 +20,10 @@ public class UsuarioNoRegistrado {
 
     }
 
-    public void verVehiculos(){
+    public void verVehiculos() throws FileNotFoundException {
+
+        Concesionario concesionario = new Concesionario("Fernando", "8976");
+        concesionario.getVehiculosVenta();
 
     }
 

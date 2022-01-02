@@ -1,8 +1,8 @@
 package model;
 
 import java.io.*;
-import java.nio.CharBuffer;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Concesionario {
 
@@ -10,8 +10,7 @@ public class Concesionario {
     private String nombre;
     private String id;
     private static ArrayList vehiculosPropiedad = new ArrayList();
-    //private static ArrayList vehiculosVenta = new ArrayList();
-
+    private String ruta = "C:\\Users\\jorge\\OneDrive - Universidad de Las Palmas de Gran Canaria\\Documents\\Universidad\\SegundoAño_GCID\\Primer cuatrimestre\\Ing de software\\ConcesionarioIS\\VehiculosEnVenta.txt";
 
     public Concesionario(String nombre, String id) {
         this.nombre = nombre;
@@ -23,25 +22,56 @@ public class Concesionario {
     public void setVehiculosVenta(int id, int puertas, int asientos, ExtrasCoche extrasCoche, ModeloDeCoche modeloDeCoche) throws IOException {
 
         Vehiculo vehiculo = new Vehiculo(id, puertas, asientos, extrasCoche, modeloDeCoche);
-        String Contenido = vehiculo.getVehiculo().toString();
+        String contenido = vehiculo.getVehiculo().toString();
 
-        String fileName = "CochesEnVenta.txt";
-        //Arreglar que se repita, lelendolo con un if
+        String fileName = "VehiculosEnVenta.txt";
+
         try{
 
             FileWriter fw = new FileWriter(fileName, true);
-            fw.write(Contenido);
-            fw.write("\n");
+
+            BufferedReader br = new BufferedReader(new FileReader(ruta));
+            String bfRead;
+
+            System.out.println(br.readLine());
+
+            if ((br.readLine() == null)){
+                fw.write("Id, Puertas, Asientos, Extras, Modelo" + "\n");
+                fw.write(contenido + "\n");
+            }
+
+            else{
+                while ((bfRead = br.readLine()) != null) {
+                    if (bfRead.equals(contenido)) {
+                        System.out.println("Ya se ha añadido");
+                    }
+                    else {
+                        fw.write(contenido + "\n");
+                    }
+                }
+            }
             fw.close();
+            br.close();
         }
+
         catch (IOException e){
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
     }
 
-    public void getVehiculosVenta(){
+    public String getVehiculosVenta() throws FileNotFoundException {
 
+        /*
+
+        File doc = new File(ruta);
+        Scanner obj = new Scanner(doc);
+
+        while (obj.hasNextLine()){
+            return obj.nextLine();
+        }*/
+
+        return null;
     }
 
 

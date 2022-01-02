@@ -27,8 +27,16 @@ public class ConcesionarioApp {
 
         usuarioNoRegistrado.solicitarCita("martes", 12, "alvaro", "689145678");
 
-        concesionario.setVehiculosVenta(3456, 5,5,  ExtrasCoche.Llantas, ModeloDeCoche.Toyota);
-        concesionario.getVehiculosVenta();
+
+        //concesionario.setVehiculosVenta(2456, 5,5,  ExtrasCoche.Llantas, ModeloDeCoche.Toyota);
+        //concesionario.setVehiculosVenta(2756, 5,5,  ExtrasCoche.Llantas, ModeloDeCoche.Toyota);
+        concesionario.setVehiculosVenta(7751, 5,5,  ExtrasCoche.Llantas, ModeloDeCoche.Toyota);
+
+        System.out.println(concesionario.getVehiculosVenta());
+
+
+
+
 
 
 
