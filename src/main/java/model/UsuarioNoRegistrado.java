@@ -7,6 +7,7 @@ public class UsuarioNoRegistrado {
 
     private String nombre;
     private String telefono;
+    private ArrayList vehiculos = new ArrayList();
 
 
     public UsuarioNoRegistrado(String nombre, String telefono) {
@@ -22,9 +23,14 @@ public class UsuarioNoRegistrado {
 
     public void verVehiculos() throws FileNotFoundException {
 
-        Concesionario concesionario = new Concesionario("Fernando", "8976");
-        concesionario.getVehiculosVenta();
+        //ESTE PROCESO SE IMPLEMENTE DIRECTAMENTE EN LA INTERFAZ GRAFICA AQUI SOLO IRIA HASTA EL ARRAYLIS VEHICULOS EL FOR EN LA INTERFAZ.
 
+        Concesionario concesionario = new Concesionario("Fernando", "8976");
+        vehiculos = concesionario.getVehiculosVenta();
+
+        for(int i = 0;i< vehiculos.size();i++){
+            System.out.println(vehiculos.get(i));
+        }
     }
 
     public void verOfertas(){

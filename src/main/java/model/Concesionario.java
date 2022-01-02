@@ -19,9 +19,9 @@ public class Concesionario {
 
     //------------------------------------------------------------------
 
-    public void setVehiculosVenta(int id, int puertas, int asientos, ExtrasCoche extrasCoche, ModeloDeCoche modeloDeCoche) throws IOException {
+    public void setVehiculosVenta(int id, int puertas, int asientos, ExtrasCoche extrasCoche, ModeloDeCoche modeloDeCoche, int precio) throws IOException {
 
-        Vehiculo vehiculo = new Vehiculo(id, puertas, asientos, extrasCoche, modeloDeCoche);
+        Vehiculo vehiculo = new Vehiculo(id, puertas, asientos, extrasCoche, modeloDeCoche, precio);
         String contenido = vehiculo.getVehiculo().toString();
 
         String fileName = "VehiculosEnVenta.txt";
@@ -31,24 +31,13 @@ public class Concesionario {
             FileWriter fw = new FileWriter(fileName, true);
 
             BufferedReader br = new BufferedReader(new FileReader(ruta));
-            String bfRead;
-
-            System.out.println(br.readLine());
 
             if ((br.readLine() == null)){
-                fw.write("Id, Puertas, Asientos, Extras, Modelo" + "\n");
+                fw.write("Id, Puertas, Asientos, Extras, Modelo, Precio \n");
                 fw.write(contenido + "\n");
             }
-
             else{
-                while ((bfRead = br.readLine()) != null) {
-                    if (bfRead.equals(contenido)) {
-                        System.out.println("Ya se ha añadido");
-                    }
-                    else {
-                        fw.write(contenido + "\n");
-                    }
-                }
+                fw.write(contenido + "\n");
             }
             fw.close();
             br.close();
@@ -60,18 +49,17 @@ public class Concesionario {
         }
     }
 
-    public String getVehiculosVenta() throws FileNotFoundException {
+    public ArrayList getVehiculosVenta() throws FileNotFoundException {
 
-        /*
+        ArrayList vehiculos = new ArrayList();
 
         File doc = new File(ruta);
         Scanner obj = new Scanner(doc);
 
-        while (obj.hasNextLine()){
-            return obj.nextLine();
-        }*/
-
-        return null;
+        for(int i = 0;obj.hasNextLine();i++){
+             vehiculos.add(obj.nextLine());
+        }
+        return vehiculos;
     }
 
 
