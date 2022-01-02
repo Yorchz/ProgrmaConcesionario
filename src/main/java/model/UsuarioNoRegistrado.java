@@ -29,11 +29,11 @@ public class UsuarioNoRegistrado {
 
     public ArrayList citas = new ArrayList();
 
-    public void solicitarAsesoramiento(String fecha, int hora, String nombre, String telefono) {
+    public ArrayList solicitarCita(String fecha, int hora, String nombre, String telefono) {
 
         Cita cita = new Cita(fecha, hora, nombre, telefono);
-        System.out.println(cita.getCita());
         citas.add(cita);
+        return cita.getCita();
     }
 
 

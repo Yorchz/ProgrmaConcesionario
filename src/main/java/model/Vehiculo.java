@@ -9,20 +9,30 @@ public class Vehiculo {
     private int asientos;
     private ExtrasCoche extrasCoche;
     private ModeloDeCoche modeloDeCoche;
+    private ArrayList vehiculoVenta = new ArrayList();
+
 
     public Vehiculo(int id, int puertas, int asientos, ExtrasCoche extrasCoche, ModeloDeCoche modeloDeCoche) {
-        this.id = id;
-        this.puertas = puertas;
-        this.asientos = asientos;
-        this.extrasCoche = extrasCoche;
-        this.modeloDeCoche = modeloDeCoche;
+       this.setVehiculo(id, puertas, asientos, extrasCoche, modeloDeCoche);
     }
-
-    private ArrayList vehiculos = new ArrayList();
 
     //y aqui me ter vehiculos cual loco para tener una lista con la que poder trabajar que tenga los atributos que dice la clases
 
     //-------------------------------------------------------
+
+    public ArrayList getVehiculo(){
+        return vehiculoVenta;
+    }
+
+    public void setVehiculo(int id, int puertas, int asientos, ExtrasCoche extrasCoche, ModeloDeCoche modeloDeCoche){
+
+        vehiculoVenta.add(this.id = id);
+        vehiculoVenta.add(this.puertas = puertas);
+        vehiculoVenta.add(this.asientos = asientos);
+        vehiculoVenta.add(this.extrasCoche = extrasCoche);
+        vehiculoVenta.add(this.modeloDeCoche = modeloDeCoche);
+
+    }
 
     public int getId() {
         return id;
@@ -47,4 +57,6 @@ public class Vehiculo {
     public void setAsientos(int asientos) {
         this.asientos = asientos;
     }
+
+
 }
