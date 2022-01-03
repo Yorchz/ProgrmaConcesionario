@@ -28,13 +28,23 @@ public class UsuarioNoRegistrado {
         Concesionario concesionario = new Concesionario("Fernando", "8976");
         vehiculos = concesionario.getVehiculosVenta();
 
+        //return vehiculos;
+
         for(int i = 0;i< vehiculos.size();i++){
             System.out.println(vehiculos.get(i));
         }
     }
 
-    public void verOfertas(){
+    public void verOfertas() throws FileNotFoundException {
 
+        Concesionario concesionario = new Concesionario("Fernando", "8976");
+        vehiculos = concesionario.getVehiculosEnOferta();
+
+        //return vehiculos;
+
+        for(int i = 0;i< vehiculos.size();i++){
+            System.out.println(vehiculos.get(i));
+        }
     }
 
     public ArrayList citas = new ArrayList();

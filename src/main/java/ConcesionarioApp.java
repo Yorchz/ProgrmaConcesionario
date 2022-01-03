@@ -31,8 +31,12 @@ public class ConcesionarioApp {
 
         concesionario.getVehiculosVenta();
         usuarioNoRegistrado.verVehiculos();
-        //usuarioRegistrado.revision("coche", "lunes", "12.34");
+        usuarioRegistrado.revision("coche", "lunes", "12.34");
         usuarioRegistrado.historialDeRevisiones();
+
+        concesionario.setVehiculosEnOferta(4444,5,5,  ExtrasCoche.Llantas, ModeloDeCoche.Toyota, 35000, 10000);
+        usuarioNoRegistrado.verOfertas();
+
 
 
 

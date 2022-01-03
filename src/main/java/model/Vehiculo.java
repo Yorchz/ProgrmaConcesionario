@@ -8,6 +8,7 @@ public class Vehiculo {
     private int puertas;
     private int asientos;
     private int precio;
+    private int oferta;
     private ExtrasCoche extrasCoche;
     private ModeloDeCoche modeloDeCoche;
     private ArrayList vehiculoVenta = new ArrayList();
@@ -35,6 +36,14 @@ public class Vehiculo {
         vehiculoVenta.add(this.precio = precio);
 
 
+    }
+
+    public int getOferta() {
+        return oferta;
+    }
+
+    public void setOferta(int oferta) {
+        this.oferta = oferta;
     }
 
     public int getId() {

@@ -3,6 +3,8 @@ package model;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class Concesionario {
 
@@ -10,7 +12,10 @@ public class Concesionario {
     private String nombre;
     private String id;
     private static ArrayList vehiculosPropiedad = new ArrayList();
-    private String ruta = "C:\\Users\\jorge\\OneDrive - Universidad de Las Palmas de Gran Canaria\\Documents\\Universidad\\SegundoAño_GCID\\Primer cuatrimestre\\Ing de software\\ConcesionarioIS\\VehiculosEnVenta.txt";
+
+    Path path = Paths.get("");
+    private String rutaVenta = path.toAbsolutePath().toString() + "/VehiculosEnVenta.txt";
+    private String rutaOferta = path.toAbsolutePath().toString() + "/VehiculosEnOferta.txt";
 
     public Concesionario(String nombre, String id) {
         this.nombre = nombre;
@@ -18,6 +23,52 @@ public class Concesionario {
     }
 
     //------------------------------------------------------------------
+
+    public void setVehiculosEnOferta(int id, int puertas, int asientos, ExtrasCoche extrasCoche, ModeloDeCoche modeloDeCoche, int precio, int oferta) throws IOException {
+
+        Vehiculo vehiculo = new Vehiculo(id, puertas, asientos, extrasCoche, modeloDeCoche, precio);
+        vehiculo.setOferta(oferta);
+        String contenidoOfertas = vehiculo.getVehiculo().toString() + vehiculo.getOferta();
+
+        String fileName = "VehiculosEnOferta.txt";
+
+        try{
+
+            FileWriter fw = new FileWriter(fileName, true);
+
+            BufferedReader br = new BufferedReader(new FileReader(rutaOferta));
+
+            if ((br.readLine() == null)){
+                fw.write("Id, Puertas, Asientos, Extras, Modelo, Precio, Descuanto \n");
+                fw.write(contenidoOfertas + "\n");
+            }
+            else{
+                fw.write(contenidoOfertas + "\n");
+            }
+            fw.close();
+            br.close();
+        }
+
+        catch (IOException e){
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+    }
+
+    public ArrayList getVehiculosEnOferta() throws FileNotFoundException {
+
+        ArrayList vehiculos = new ArrayList();
+
+        File doc = new File(rutaOferta);
+        Scanner obj = new Scanner(doc);
+
+        for(int i = 0;obj.hasNextLine();i++){
+            vehiculos.add(obj.nextLine());
+        }
+        return vehiculos;
+    }
+
+    //-----------------------------------------------------------------
 
     public void setVehiculosVenta(int id, int puertas, int asientos, ExtrasCoche extrasCoche, ModeloDeCoche modeloDeCoche, int precio) throws IOException {
 
@@ -30,7 +81,7 @@ public class Concesionario {
 
             FileWriter fw = new FileWriter(fileName, true);
 
-            BufferedReader br = new BufferedReader(new FileReader(ruta));
+            BufferedReader br = new BufferedReader(new FileReader(rutaVenta));
 
             if ((br.readLine() == null)){
                 fw.write("Id, Puertas, Asientos, Extras, Modelo, Precio \n");
@@ -53,7 +104,7 @@ public class Concesionario {
 
         ArrayList vehiculos = new ArrayList();
 
-        File doc = new File(ruta);
+        File doc = new File(rutaVenta);
         Scanner obj = new Scanner(doc);
 
         for(int i = 0;obj.hasNextLine();i++){
@@ -62,7 +113,7 @@ public class Concesionario {
         return vehiculos;
     }
 
-
+    //------------------------------------------------------------------
 
     public void setVehiculosPropietario(String vehiculo) {
 

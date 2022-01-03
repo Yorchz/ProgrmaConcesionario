@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -11,9 +13,9 @@ public class UsuarioRegistrado extends UsuarioNoRegistrado{
 
     private String correo;
     private String dni;
-    private String ruta = "C:\\Users\\jorge\\OneDrive - Universidad de Las Palmas de Gran Canaria\\Documents\\Universidad\\SegundoAño_GCID\\Primer cuatrimestre\\Ing de software\\ConcesionarioIS\\revisiones.txt";
 
-
+    Path path = Paths.get("");
+    private String rutaRead = path.toAbsolutePath().toString() + "/Revisiones.txt";
 
     public UsuarioRegistrado(String correo, String dni, String nombre, String telefono) {
         super(nombre, telefono);
@@ -25,12 +27,10 @@ public class UsuarioRegistrado extends UsuarioNoRegistrado{
     //-----------------------------------------------------------------
 
     public String revision(String coche, String dia, String hora){
-        ArrayList vehiculos = vheiculosEnPropiedad();
 
         String cita = "Su cita para el vehículo "+coche+" está programada para el "+dia+" a las "+hora;
+        String fileName = "Revisiones.txt";
 
-
-        String fileName = "revisiones.txt";
         try{
 
             FileWriter fw = new FileWriter(fileName, true);
@@ -57,7 +57,7 @@ public class UsuarioRegistrado extends UsuarioNoRegistrado{
 
         ArrayList reservas = new ArrayList();
 
-        File doc = new File(ruta);
+        File doc = new File(rutaRead);
         Scanner obj = new Scanner(doc);
 
         for(int i = 0;obj.hasNextLine();i++){
