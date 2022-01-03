@@ -45,12 +45,16 @@ public class UsuarioRegistrado extends UsuarioNoRegistrado{
         return cita;
     }
 
-    public ArrayList vheiculosEnPropiedad(){
+    public void vheiculosEnPropiedad() throws FileNotFoundException {
 
         Concesionario concesionario = new Concesionario("Fernando", "8976");
-        return concesionario.getVehiculosPropietario();
+        ArrayList vehiculosPropiedad = concesionario.getVehiculosPropietario();
 
+        //return vehiculos;
 
+        for (int i = 0; i < vehiculosPropiedad.size(); i++) {
+            System.out.println(vehiculosPropiedad.get(i));
+        }
     }
 
     public void historialDeRevisiones() throws FileNotFoundException {
@@ -69,12 +73,6 @@ public class UsuarioRegistrado extends UsuarioNoRegistrado{
         for(int i = 0;i< reservas.size();i++) {
             System.out.println(reservas.get(i));
 
-
-        /*File doc = new File("desktop/revisiones.txt");
-        Scanner obj = new Scanner(doc);
-
-        while (obj.hasNextLine())
-            return obj.nextLine();*/
         }
     }
 

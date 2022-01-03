@@ -11,11 +11,11 @@ public class Concesionario {
 
     private String nombre;
     private String id;
-    private static ArrayList vehiculosPropiedad = new ArrayList();
 
     Path path = Paths.get("");
     private String rutaVenta = path.toAbsolutePath().toString() + "/VehiculosEnVenta.txt";
     private String rutaOferta = path.toAbsolutePath().toString() + "/VehiculosEnOferta.txt";
+    private String rutaPropiedad = path.toAbsolutePath().toString() + "/VehiculosEnPropiedad.txt";
 
     public Concesionario(String nombre, String id) {
         this.nombre = nombre;
@@ -57,15 +57,15 @@ public class Concesionario {
 
     public ArrayList getVehiculosEnOferta() throws FileNotFoundException {
 
-        ArrayList vehiculos = new ArrayList();
+        ArrayList vehiculosOferta = new ArrayList();
 
         File doc = new File(rutaOferta);
         Scanner obj = new Scanner(doc);
 
         for(int i = 0;obj.hasNextLine();i++){
-            vehiculos.add(obj.nextLine());
+            vehiculosOferta.add(obj.nextLine());
         }
-        return vehiculos;
+        return vehiculosOferta;
     }
 
     //-----------------------------------------------------------------
@@ -117,13 +117,34 @@ public class Concesionario {
 
     public void setVehiculosPropietario(String vehiculo) {
 
-        vehiculosPropiedad.add(vehiculo);
+        String vehiculoPropio = vehiculo ;
+
+        String fileName = "VehiculosEnPropiedad.txt";
+
+        try{
+            FileWriter fw = new FileWriter(fileName, true);
+            fw.write(vehiculoPropio + "\n");
+            fw.close();
+        }
+
+        catch (IOException e){
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
 
     }
 
-    public ArrayList getVehiculosPropietario(){
-        return vehiculosPropiedad;
+    public ArrayList getVehiculosPropietario() throws FileNotFoundException {
 
+        ArrayList vehiculosPropiedad = new ArrayList();
+
+        File doc = new File(rutaPropiedad);
+        Scanner obj = new Scanner(doc);
+
+        for(int i = 0;obj.hasNextLine();i++){
+            vehiculosPropiedad.add(obj.nextLine());
+        }
+        return vehiculosPropiedad;
     }
 
     //-------------------------------------------------------------------
