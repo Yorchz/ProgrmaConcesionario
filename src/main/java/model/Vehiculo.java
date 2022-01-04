@@ -8,7 +8,6 @@ public class Vehiculo {
     private int puertas;
     private int asientos;
     private int precio;
-    private int oferta;
     private ExtrasCoche extrasCoche;
     private ModeloDeCoche modeloDeCoche;
     private ArrayList vehiculoVenta = new ArrayList();

@@ -24,36 +24,6 @@ public class Concesionario {
 
     //------------------------------------------------------------------
 
-    public void setVehiculosEnOferta(int id, int puertas, int asientos, ExtrasCoche extrasCoche, ModeloDeCoche modeloDeCoche, int precio, int descuento) throws IOException {
-
-        Oferta oferta = new Oferta(id, puertas, asientos, extrasCoche, modeloDeCoche, precio, descuento);
-        String contenidoOfertas = oferta.getVehiculosDescuento().toString();
-
-        String fileName = "VehiculosEnOferta.txt";
-
-        try{
-
-            FileWriter fw = new FileWriter(fileName, true);
-
-            BufferedReader br = new BufferedReader(new FileReader(rutaOferta));
-
-            if ((br.readLine() == null)){
-                fw.write("Id, Puertas, Asientos, Extras, Modelo, Precio, Descuento \n");
-                fw.write(contenidoOfertas + "\n");
-            }
-            else{
-                fw.write(contenidoOfertas + "\n");
-            }
-            fw.close();
-            br.close();
-        }
-
-        catch (IOException e){
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        }
-    }
-
     public ArrayList getVehiculosEnOferta() throws FileNotFoundException {
 
         ArrayList vehiculosOferta = new ArrayList();
@@ -69,35 +39,6 @@ public class Concesionario {
 
     //-----------------------------------------------------------------
 
-    public void setVehiculosVenta(int id, int puertas, int asientos, ExtrasCoche extrasCoche, ModeloDeCoche modeloDeCoche, int precio) throws IOException {
-
-        Vehiculo vehiculo = new Vehiculo(id, puertas, asientos, extrasCoche, modeloDeCoche, precio);
-        String contenido = vehiculo.getVehiculo().toString();
-
-        String fileName = "VehiculosEnVenta.txt";
-
-        try{
-
-            FileWriter fw = new FileWriter(fileName, true);
-
-            BufferedReader br = new BufferedReader(new FileReader(rutaVenta));
-
-            if ((br.readLine() == null)){
-                fw.write("Id, Puertas, Asientos, Extras, Modelo, Precio \n");
-                fw.write(contenido + "\n");
-            }
-            else{
-                fw.write(contenido + "\n");
-            }
-            fw.close();
-            br.close();
-        }
-
-        catch (IOException e){
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        }
-    }
 
     public ArrayList getVehiculosVenta() throws FileNotFoundException {
 
@@ -113,25 +54,6 @@ public class Concesionario {
     }
 
     //------------------------------------------------------------------
-
-    public void setVehiculosPropietario(String vehiculo) {
-
-        String vehiculoPropio = vehiculo ;
-
-        String fileName = "VehiculosEnPropiedad.txt";
-
-        try{
-            FileWriter fw = new FileWriter(fileName, true);
-            fw.write(vehiculoPropio + "\n");
-            fw.close();
-        }
-
-        catch (IOException e){
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        }
-
-    }
 
     public ArrayList getVehiculosPropietario() throws FileNotFoundException {
 
