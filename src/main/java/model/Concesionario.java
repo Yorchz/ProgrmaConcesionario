@@ -24,11 +24,10 @@ public class Concesionario {
 
     //------------------------------------------------------------------
 
-    public void setVehiculosEnOferta(int id, int puertas, int asientos, ExtrasCoche extrasCoche, ModeloDeCoche modeloDeCoche, int precio, int oferta) throws IOException {
+    public void setVehiculosEnOferta(int id, int puertas, int asientos, ExtrasCoche extrasCoche, ModeloDeCoche modeloDeCoche, int precio, int descuento) throws IOException {
 
-        Vehiculo vehiculo = new Vehiculo(id, puertas, asientos, extrasCoche, modeloDeCoche, precio);
-        vehiculo.setOferta(oferta);
-        String contenidoOfertas = vehiculo.getVehiculo().toString() + vehiculo.getOferta();
+        Oferta oferta = new Oferta(id, puertas, asientos, extrasCoche, modeloDeCoche, precio, descuento);
+        String contenidoOfertas = oferta.getVehiculosDescuento().toString();
 
         String fileName = "VehiculosEnOferta.txt";
 
@@ -39,7 +38,7 @@ public class Concesionario {
             BufferedReader br = new BufferedReader(new FileReader(rutaOferta));
 
             if ((br.readLine() == null)){
-                fw.write("Id, Puertas, Asientos, Extras, Modelo, Precio, Descuanto \n");
+                fw.write("Id, Puertas, Asientos, Extras, Modelo, Precio, Descuento \n");
                 fw.write(contenidoOfertas + "\n");
             }
             else{

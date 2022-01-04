@@ -38,14 +38,6 @@ public class Vehiculo {
 
     }
 
-    public int getOferta() {
-        return oferta;
-    }
-
-    public void setOferta(int oferta) {
-        this.oferta = oferta;
-    }
-
     public int getId() {
         return id;
     }
@@ -70,5 +62,27 @@ public class Vehiculo {
         this.asientos = asientos;
     }
 
+    public int getPrecio() {
+        return precio;
+    }
 
+    public void setPrecio(int precio) {
+        this.precio = precio;
+    }
+
+    public ExtrasCoche getExtrasCoche() {
+        return extrasCoche;
+    }
+
+    public void setExtrasCoche(ExtrasCoche extrasCoche) {
+        this.extrasCoche = extrasCoche;
+    }
+
+    public ModeloDeCoche getModeloDeCoche() {
+        return modeloDeCoche;
+    }
+
+    public void setModeloDeCoche(ModeloDeCoche modeloDeCoche) {
+        this.modeloDeCoche = modeloDeCoche;
+    }
 }
