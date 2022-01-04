@@ -34,7 +34,6 @@ public class Vehiculo {
         vehiculoVenta.add(this.modeloDeCoche = modeloDeCoche);
         vehiculoVenta.add(this.precio = precio);
 
-
     }
 
     public int getId() {

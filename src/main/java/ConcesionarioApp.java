@@ -30,9 +30,12 @@ public class ConcesionarioApp {
         usuarioNoRegistrado.verOfertas();
         System.out.println("-------------------------------");
 
-        //usuarioNoRegistrado.reservarVehiculo("11-05-5005", "Trimestral", Oficina.Maspalomas);
-        usuarioNoRegistrado.verReservas();
+        usuarioRegistrado.verReservas();
+
         System.out.println("-------------------------------");
+
+        //usuarioNoRegistrado.configurarVehiculo(4444,5,5,  ExtrasCoche.Llantas, ModeloDeCoche.Toyota, 35000,"2000", "rojo", "cromadas", "kk");
+        usuarioNoRegistrado.verVehiculoConfigurado();
 
     }
 }

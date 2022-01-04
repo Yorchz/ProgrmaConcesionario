@@ -10,16 +10,20 @@ public class UsuarioNoRegistrado {
 
     private String nombre;
     private String telefono;
-    public String reservas;
+    private String reservas;
+    private String configurado;
+
 
     private ArrayList vehiculos = new ArrayList();
     private ArrayList vehiculosOferta = new ArrayList();
     public ArrayList citas = new ArrayList();
     private ArrayList vehiculoReservado = new ArrayList();
+    private ArrayList vehiculoConfiguradoPrint = new ArrayList();
 
 
     Path path = Paths.get("");
     private String rutaReserva = path.toAbsolutePath().toString() + "/VehiculosReservados.txt";
+    private String rutaConfigurado = path.toAbsolutePath().toString() + "/VehiculosConfigurados.txt";
 
 
 
@@ -91,6 +95,55 @@ public class UsuarioNoRegistrado {
         for(int i = 0;i< vehiculos.size();i++){
             System.out.println(vehiculos.get(i));
         }
+    }
+
+    public void configurarVehiculo(int id, int puertas, int asientos, ExtrasCoche extrasCoche, ModeloDeCoche modeloDeCoche, int precio, String motor, String color, String llantas, String marchas){
+
+        Configurar configurar = new Configurar(id, puertas, asientos, extrasCoche, modeloDeCoche, precio, motor, color, llantas, marchas);
+
+        String fileName = "VehiculosConfigurados.txt";
+
+        configurado = configurar.getVehiculoConfigurado().toString();
+
+
+        try{
+
+            FileWriter fw = new FileWriter(fileName, true);
+
+            BufferedReader br = new BufferedReader(new FileReader(rutaConfigurado));
+
+            if ((br.readLine() == null)){
+                fw.write("Id, Puertas, Asientos, Extras, Modelo, Precio, Motor, Color, Llantas, Marchas \n");
+                fw.write(configurado + "\n");
+            }
+            else{
+                fw.write(configurado + "\n");
+            }
+            fw.close();
+            br.close();
+        }
+
+        catch (IOException e){
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+
+    }
+
+    public void verVehiculoConfigurado() throws FileNotFoundException {
+
+        File doc = new File(rutaConfigurado);
+        Scanner obj = new Scanner(doc);
+
+        for(int i = 0;obj.hasNextLine();i++){
+            vehiculoReservado.add(obj.nextLine());
+        }
+        //return vehiculoReservado;
+        //Esta parte es la que printea el mensaje seria a la de la interfaz. Es la misma o muy parecita con todas las funciones
+        for(int i = 0;i< vehiculoReservado.size();i++){
+            System.out.println(vehiculoReservado.get(i));
+        }
+
     }
 
     //-----------------------------------------------------
