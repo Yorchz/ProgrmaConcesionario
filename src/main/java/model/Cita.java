@@ -1,30 +1,30 @@
 package model;
 
-import java.util.ArrayList;
-
 public class Cita {
 
     private String fecha;
-    private int hora;
+    private String hora;
     private UsuarioNoRegistrado usuarioNoRegistrado;
-    private ArrayList cita = new ArrayList();
+    private String cita;
+    private String concesionario;
 
-    public Cita(String fecha, int hora, String nombre, String telefono) {
-
-        this.setCita(fecha, hora, nombre, telefono);
+    public Cita(String fecha, String hora, String nombre, String correo, String concesionario) {
+       this.setCita(fecha, hora, nombre, correo, concesionario);
     }
 
     //----------------------------------------------------------------
 
-    public ArrayList getCita(){
+    public String getCita(){
         return cita;
     }
 
-    public void setCita(String fecha, int hora,String nombre, String telefono) {
-        cita.add( this.fecha = fecha);
-        cita.add(this.hora = hora);
-        this.usuarioNoRegistrado = new UsuarioNoRegistrado(nombre, telefono);
-        cita.add(usuarioNoRegistrado.getNombre());
-        cita.add(usuarioNoRegistrado.getTelefono());
+    public void setCita(String fecha, String hora,String nombre, String correo, String concesionario) {
+        
+        usuarioNoRegistrado = new UsuarioNoRegistrado(nombre, correo);
+        this.fecha = fecha;
+        this.hora = hora;
+        cita = "Fecha: " + fecha + ", hora: " + hora + ", nombre: "+ usuarioNoRegistrado.getNombre() + ", correo: " + usuarioNoRegistrado.getCorreo()+", concesionario: "+concesionario;
+        
+
     }
 }

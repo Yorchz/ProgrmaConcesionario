@@ -4,9 +4,9 @@ public class Reservar {
 
     private String fecha;
     private String planDePago;
-    private Oficina oficina;
+    private String oficina;
 
-    public Reservar(String fecha, String planDePago, Oficina oficina) {
+    public Reservar(String fecha, String planDePago, String oficina) {
         this.fecha = fecha;
         this.planDePago = planDePago;
         this.oficina = oficina;
@@ -28,11 +28,11 @@ public class Reservar {
         this.planDePago = planDePago;
     }
 
-    public Oficina getOficina() {
+    public String getOficina() {
         return oficina;
     }
 
-    public void setOficina(Oficina oficina) {
+    public void setOficina(String oficina) {
         this.oficina = oficina;
     }
 }

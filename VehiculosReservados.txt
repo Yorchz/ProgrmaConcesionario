@@ -1,0 +1,25 @@
+
+12/01, Al contado, Maspalomas, Volkswagen Golf - 25000€, Amarillo, 18'', Automático
+11/01, financiado, Telde, Audi A3 - 28000€, Rojo, 16'', Manual
+11/01, financiado, Vecindario, Volkswagen Polo - 15000€
+23/01, financiado, Telde, Audi A1 - 19000€
+14/01, Al contado, Vecindario, Volkswagen Golf - 25000€
+a, Al contado, Las palmas, Skoda Fabia - 17000 
+a, Al contado, Las palmas, Audi A3 - 28000 , Rojo, 16'', Manual
+x, Al contado, Las palmas, Skoda Fabia - 17000
+x, Al contado, Las palmas, 
+a, Al contado, Las palmas, 
+a, Al contado, Las palmas, Volkswagen Polo - 15000
+a, Al contado, Las palmas, Audi A1 - 19000
+a, Al contado, Las palmas, Skoda Fabia - 17000
+a, Al contado, Las palmas, Audi A3 - 28000, Rojo, 16'', Manual
+t, Al contado, Las palmas, Skoda Fabia - 17000
+t, Al contado, Las palmas, Volkswagen Polo - 15000
+f, Al contado, Las palmas, Audi A3 - 28000, Rojo, 16'', Manual
+fff, Al contado, Las palmas, Skoda Fabia - 17000
+dfdf, Al contado, Las palmas, Volkswagen Golf - 25000 
+d, Al contado, Las palmas, Volkswagen Polo - 15000
+f, Al contado, Las palmas, Skoda Fabia - 17000, Rojo, 16'', Manual
+13/01, financiado, Vecindario, Skoda Fabia - 17000, Azul, 17'', Automático
+15/01, financiado, Vecindario, Audi A3 - 28000
+14/01, financiado, Las palmas, Volkswagen Polo - 15000

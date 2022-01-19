@@ -1,0 +1,7 @@
+Fecha: 20/01, hora: 16:00, nombre: Alvaro, telefono: 5555
+Fecha: 15/01, hora: 11:30, nombre: Jorge, telefono: 3333
+Fecha: s, hora: s, nombre: s, correo: s, concesionario: Vecindario
+Fecha: sdfsdf, hora: sdfsdf, nombre: dsfsasdff, correo: sdfsdfsdsdffsdf, concesionario: Las palmas
+Fecha: 12/01, hora: 13:30, nombre: Alvaro, correo: alvaro@gmail.com, concesionario: Las palmas
+Fecha: sdff, hora: sfdff, nombre: sdfsdfsd, correo: sdfsdfsdfsdf, concesionario: Las palmas
+Fecha: 16/01, hora: 20:00, nombre: Alvaro, correo: alvaro@gmail.com, concesionario: Las palmas

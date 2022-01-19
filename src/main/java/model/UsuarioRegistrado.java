@@ -11,24 +11,27 @@ import java.util.Scanner;
 
 public class UsuarioRegistrado extends UsuarioNoRegistrado{
 
-    private String correo;
-    private String dni;
+    private String contrasena;
 
     Path path = Paths.get("");
     private String rutaRead = path.toAbsolutePath().toString() + "/Revisiones.txt";
 
-    public UsuarioRegistrado(String correo, String dni, String nombre, String telefono) {
-        super(nombre, telefono);
-        this.correo = correo;
-        this.dni = dni;
+    public UsuarioRegistrado(String nombre, String correo, String contrasena) {
+        super(nombre, correo);
+
+        this.contrasena = contrasena;
 
     }
 
     //-----------------------------------------------------------------
 
-    public String revision(String coche, String dia, String hora){
+    public String revision(String coche, String dia, String hora, String concesionario, String nombre, String correo, String contrasena){
 
-        String cita = "Su cita para el vehículo "+coche+" está programada para el "+dia+" a las "+hora;
+        Vehiculo vehiculo = new Vehiculo(coche);
+        String car = vehiculo.getVehiculo();
+        Revision revision = new Revision(dia,hora,concesionario, nombre, correo, contrasena);
+        
+        String cita = "Su cita para el vehiculo "+ car + revision.getRevision();
         String fileName = "Revisiones.txt";
 
         try{
@@ -45,19 +48,16 @@ public class UsuarioRegistrado extends UsuarioNoRegistrado{
         return cita;
     }
 
-    public void vheiculosEnPropiedad() throws FileNotFoundException {
+    public String[] vheiculosEnPropiedad() throws FileNotFoundException {
 
-        Concesionario concesionario = new Concesionario("Fernando", "8976");
+        Concesionario concesionario = new Concesionario();
         ArrayList vehiculosPropiedad = concesionario.getVehiculosPropietario();
+        String[] coche = (String[]) vehiculosPropiedad.toArray(new String[0]);
 
-        //return vehiculos;
-
-        for (int i = 0; i < vehiculosPropiedad.size(); i++) {
-            System.out.println(vehiculosPropiedad.get(i));
-        }
+        return coche;
     }
 
-    public void historialDeRevisiones() throws FileNotFoundException {
+    public String[] historialDeRevisiones() throws FileNotFoundException {
 
         ArrayList reservas = new ArrayList();
 
@@ -67,30 +67,54 @@ public class UsuarioRegistrado extends UsuarioNoRegistrado{
         for(int i = 0;obj.hasNextLine();i++){
             reservas.add(obj.nextLine());
         }
-    // return reservas;
-        //LO PRINTEAMOS LEYENDO DIRECTAMENTE EN LA INTERFAZ GRÁFICA VIDEO GUI_5
+        String[] revision = (String[]) reservas.toArray(new String[0]);
 
-        for(int i = 0;i< reservas.size();i++) {
-            System.out.println(reservas.get(i));
+        return revision;
 
-        }
+        
     }
+    
+    
+    
+    public void modificarPerfil(String nombre, String correo, String contrasena) throws IOException {
+        
+        String fileName = "Usuario.txt";
+        
+        String nombreNuevo = nombre;
+        String correoNuevo = correo;
+        String contrasenaNueva = contrasena;
+        
+        
+        try {
+            
+        FileWriter myWriter = new FileWriter(fileName);
+        myWriter.write(nombre);
+        myWriter.write("\n");
+        myWriter.write(correo);
+        myWriter.write("\n");
+        myWriter.write(contrasena);
+        
+        myWriter.close();
+        
+        } catch (IOException e) {
+        System.out.println("An error occurred.");
+        e.printStackTrace();
+        }
+        
+    }
+    
+    
+    
+    
 
     //-----------------------------------------------------------------
 
-    public String getCorreo() {
-        return correo;
+    public String getContrasena() {
+        return contrasena;
     }
 
-    public void setCorreo(String correo) {
-        this.correo = correo;
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 
-    public String getDni() {
-        return dni;
-    }
-
-    public void setDni(String dni) {
-        this.dni = dni;
-    }
 }
